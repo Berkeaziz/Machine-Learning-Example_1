@@ -2,9 +2,6 @@
 
 This repository contains **educational and reference implementations** of fundamental machine learning algorithms in MATLAB.
 
-The implementations are provided as **examples for learning and practice purposes only**.  
-They are **not intended to be submitted as homework solutions** and should be used to understand the algorithms, mathematical formulations, and implementation details.
-
 ---
 
 ## Purpose of This Repository
@@ -94,16 +91,6 @@ These examples focus on **generative classification models**.
 
 This section demonstrates instance-based learning and model evaluation.
 
----
-
-## Notes
-
-- All figures and plots are generated programmatically
-- No screenshots are used
-- External machine learning libraries are avoided unless explicitly stated
-- The code prioritizes **clarity and educational value** over optimization
-
----
 
 
 
