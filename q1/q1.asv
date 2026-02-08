@@ -1,0 +1,70 @@
+% q1_main.m
+
+clear; close all; clc;
+
+% Veri yükleme
+data = load("q1data.txt");
+x = data(:,1);
+y = data(:,2);
+m = length(y);
+
+% 1.1 - Veriyi görselleştirme
+figure;
+scatter(x, y, "filled");
+xlabel("City Population");
+ylabel("Monthly sales revenue");
+title("q1 data : Population vs Revenue");
+grid on;
+
+% Task 1–3: L1 ile gradient descent
+
+X = [ones(m,1), x];       % Özellik matrisi (m x 2)
+theta0 = zeros(2,1);      % Başlangıç parametresi
+alphas = [0.0001, 0.001, 0.01, 0.1];
+num_iters = 2000;
+
+thetas = cell(length(alphas),1);        % Her alpha için son theta
+J_last = zeros(length(alphas),1);       % Her alpha için son cost
+
+figure; hold on; grid on;
+for k = 1:length(alphas)
+    theta_init = theta0;                % Her alpha için aynı başlangıç
+    alpha = alphas(k);
+
+    [theta_tmp, J_hist] = gradientDescentL1(X, y, theta_init, alpha, num_iters);
+
+    thetas{k} = theta_tmp;
+    J_last(k) = J_hist(end);
+
+    % Her alpha için cost'un iterasyona göre grafiği
+    plot(1:num_iters, J_hist, 'DisplayName', sprintf('\\alpha = %.4f', alpha));
+end
+
+xlabel("Iteration");
+ylabel("L1 cost J(\\theta)");
+title("Convergence Behaviour for different learning rates");
+legend show;
+hold off;
+
+
+%Task 3-4
+
+[~,bestIdx] = min(Jlast);
+alpha_best= alphas(bestIdx);
+theta = theras{bestIdx};
+
+fprintf("best alpha %4.f\n",alpha_best);
+fprintf("theta found : theta0 = %4.f, theta1= %4.f\n",theta(1),theta(2));
+
+%plot linear fit with data
+figure;
+scatter(x,y,"filled");
+hold on;
+xlabel("City Population");
+ylabel("Mountly sales revenue");
+title("Linear regression with L1 loss");
+grid on;
+
+x_line = linspace(min(x),max(x),100)
+
+
