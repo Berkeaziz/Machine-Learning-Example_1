@@ -11,7 +11,6 @@ They are **not intended to be submitted as homework solutions** and should be us
 
 The main goal of this repository is to:
 - Demonstrate how core machine learning algorithms can be implemented **from scratch**
-- Provide **worked examples** that help students understand theory–implementation connections
 - Serve as a **personal reference archive** for future projects and revisions
 
 All experiments follow the structure and problem formulations commonly used in undergraduate machine learning courses.
